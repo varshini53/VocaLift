@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Record - VocaLift</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="record.css" />
+  <style>
+    /* Spinner Overlay */
+    #analyzing-message {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      font-size: 1.2rem;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+    }
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-top: 4px solid #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div id="navbar-container"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="record-container">
+    <h1>Record Your Session</h1>
+    <p class="subtitle">Practice your speaking skills with AI-powered feedback</p>
+
+    <section class="recorder">
+      <h2>Ready to Record</h2>
+      <div class="timer">00:00</div>
+      <button id="record-btn" class="record-btn"><i class="fas fa-microphone"></i> Start Recording</button>
+      <div id="record-options" class="hidden">
+        <button id="stop-btn" class="stop-btn"><i class="fas fa-stop"></i> Stop Recording</button>
+        <button id="upload-btn" class="upload-btn"><i class="fas fa-upload"></i> Upload & Analyze</button>
+      </div>
+    </section>
+
+    <section class="upload-section">
+      <h3>Or Upload a Recording</h3>
+      <div class="upload-box">
+        <i class="fas fa-upload upload-icon"></i>
+        <p>Upload Audio/Video File</p>
+        <span class="file-info">Support for MP3, MP4, WAV, MOV files up to 100MB</span>
+        <input type="file" class="upload-input" id="upload-input" accept="video/*,audio/*" hidden />
+        <button id="upload-btn" class="upload-btn">Choose File</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Analyzing Message -->
+  <div id="analyzing-message">
+    <div class="spinner"></div>
+    <p>Analyzing your video, please wait...</p>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script type="module" src="record.js"></script>
+  <script src="navbar.js"></script>
+</body>
+</html>

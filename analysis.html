@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis - VocaLift</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="analysis.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="analysis-container">
+    <h1>Your Recording Feedback</h1>
+    <p class="subtitle">AI analysis of your session</p>
+    <div class="feedback-card">
+      <h2>Key Insights</h2>
+      <div id="feedback-container">Loading feedback...</div>
+      <button onclick="window.location.href='record.html'" class="back-btn">Record Again</button>
+    </div>
+  </main>
+
+  <script>
+    const feedback = JSON.parse(localStorage.getItem("analysisFeedback") || '"No feedback available."');
+    document.getElementById("feedback-container").textContent = feedback;
+  </script>
+
+  <script src="navbar.js"></script>
+</body>
+</html>
